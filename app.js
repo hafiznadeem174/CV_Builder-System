@@ -6,6 +6,7 @@ const app = express();
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profile");
+const educationRoutes = require("./routes/educationRoutes");
 const sequelize = require("./db");
 // Middleware
 app.use(express.json());
@@ -30,6 +31,9 @@ sequelize.sync({ alter: true }) // or { force: true } for dev reset
 // Routes
 app.use("/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+
+app.use("/api/education", educationRoutes);
+
 module.exports = app;
 
 
